@@ -1,31 +1,46 @@
 #include "SD.h"
-#define SD_ChipSelectPin 4
 #include "TMRpcm.h"
 #include "SPI.h"
 #include "LowPower.h"
+#include <stdio.h>
 
-//Interrupt used for low power wakeup
-const int wakeUpPin = 2;
+// Analog Pins
+#define sw0  A0             // 1st switch attached at pin A0
+#define sw1  A1             // 2nd switch attached at pin A1
+#define sw2  A2             // 3rd switch attached at pin A2
+#define sw3  A3             // 4th switch attached at pin A3
+#define sw4  A5             // 5th switch attached at pin A5
+// Digital Pins
+#define wakeUpPin = 2;      // Switch interrupt pin D2, for low power wakeup
+#define SD_ChipSelectPin 4  // SD card chip select pin D4
+#define speakerOut = 9;     // Speaker output pin D9
+#define SD_MOSI = 11;       // SD card MOSI SPI output pin D9
+#define SD_MISO = 12        // SD card MISO SPI output pin D9
+#define SD_SCK = 13;        // SD card SCK SPI output pin D9
+
 
 // Variable to interface with the speaker & SD card
 TMRpcm audioV;
 
+// TODO: Remove
 int counter = 6;
+
+
 // Indicates the state of the system
 //    There are 6 states from beginning to end. 0-->5, 
 //    This mirrors the amount of switches flipped
-int stateIndicator = 0, savedState;
-// Probability of output:    A,    B,    C,    X,    F},
-int outputProbability[7][5] ={{0,    0,    0,    0,    0},
-                            {0.8,  0.1,  0.07, 0.03, 0},
-                            {0.6,  0.15, 0.15, 0.1,  0},
-                            {0.3,  0.5,  0.15, 0.05, 0},
-                            {0.05, 0.7,  0.22, 0.03, 0},
-                            {0,    0.1,  0.85, 0.03, 0.02},
-                            {0,    0,    0,    0,    1}
-                           };
-// LED outputs
-int IOArray[] = {0, 0, 0, 0, 0};                           
+int stateIndicator = 0, savedState, randomIndex;
+
+// Probability of output:     A,    B,    C,    X,    F},
+int outputProbability[6][5]={{80,   10,   7,    3,    0},
+                             {60,   15,   15,   10,   0},
+                             {30,   50,   15,   5,    0},
+                             {5,    70,   22,   3,    0},
+                             {0,    10,   85,   3,    2},
+                             {0,    0,    0,    0,    100}
+                            };
+// Switch Inputs
+int InputArray[] = {0, 0, 0, 0, 0};                            
 
 // Arrays containing the filenames for each output sound effect
 //    They are split into 5 categories, depending on rarity of occurrence.
@@ -35,11 +50,16 @@ char *soundsB[] = {"b1.wav", "b2.wav", "b3.wav", "b4.wav", "b5.wav"};
 char *soundsC[] = {"c1.wav", "c3.wav"};
 char *soundsX[] = {"x3.wav", "x2.wav", "x1.wav"};
 char *soundsF[] = {"f0.wav", "f1.wav", "f2.wav", "f3.wav", "f4.wav", "f5.wav"};
-              
+
 void setup(){
 
   Serial.begin(9600);
-  pinMode(wakeUpPin, INPUT_PULLUP);
+  pinMode(wakeUpPin, INPUT);
+  pinMode(sw0, INPUT);
+  pinMode(sw1, INPUT);
+  pinMode(sw2, INPUT);
+  pinMode(sw3, INPUT);
+  pinMode(sw4, INPUT);
 
 //  SD Setup
   if (!SD.begin(SD_ChipSelectPin)) {
@@ -51,7 +71,7 @@ void setup(){
   }
 
 //  Audio library setup
-  audioV.speakerPin = 9;
+  audioV.speakerPin = speakerOut;
   audioV.quality(1);
   audioV.setVolume(5);
 
@@ -61,30 +81,112 @@ void setup(){
 void loop(){  
   
 // Attach interrupt
-  attachInterrupt(digitalPinToInterrupt(wakeUpPin), readSwitchStates, RISING);
+//  attachInterrupt(digitalPinToInterrupt(wakeUpPin), readSwitchStates, RISING);
   
 // Enter Sleep Mode
 //  LowPower.powerDown(SLEEP_FOREVER, ADC_OFF, BOD_OFF); 
 
-// Detach interrupt on interrupt
-  detachInterrupt(digitalPinToInterrupt(wakeUpPin)); 
+// Detach interrupt on interruptE
+//  detachInterrupt(digitalPinToInterrupt(wakeUpPin)); 
+  readSwitchStates();
 
 //   Check State
   if (savedState < stateIndicator){
 //    Update LEDs    
 //    Create sounds on advancement
+//    switch(stateIndicator){
+//      case 1:
+//        break; 
+//      case 2:
+//        audioV.play(soundsB[0]);
+//        break; 
+//      case 3:
+//        audioV.play(soundsC[0]);
+//        break; 
+//      case 4:
+//        audioV.play(soundsX[0]);
+//        break; 
+//      case 5:
+//        audioV.play(soundsF[0]);
+//        break;  
+//      default:
+//        audioV.play(soundsA[0]);
+//        Serial.println("ahhh");
+//        break; 
+//    }
+    Serial.println(stateIndicator);
+    playRandomSound(stateIndicator);
   }
   
 // Perform Operations
 
 // Update State
+  savedState = stateIndicator;
 
-  debugBySerial();
+  
+//  debugBySerial();
+}
+
+void playRandomSound(int state){
+  
+  randomIndex = checkProbability(random(1, 100), state, 0);
+ 
+  if(randomIndex == 4){
+    audioV.play(soundsF[0]);
+  }
+  else if(randomIndex == 3){
+    audioV.play(soundsX[0]);
+  }
+  else if(randomIndex == 2){
+    audioV.play(soundsC[0]);
+  }
+  else if(randomIndex == 1){
+    audioV.play(soundsB[0]);
+  }
+  else{
+    audioV.play(soundsA[0]);
+  }
+  
+}
+
+// Subtractive & Recursive function to implement a probability distribution on a number between 1-100
+int checkProbability(int randomStop, int arrIndex, int numIndex){
+  
+  int comparison = randomStop - outputProbability[arrIndex][numIndex];
+  
+  char str[32];
+  sprintf(str, "Orig: %3d Comp: %3d Index: %3d", randomStop, comparison, numIndex);
+  Serial.println(str);
+  
+  if(comparison < 1){
+    return checkProbability(comparison, arrIndex, numIndex + 1);
+  }
+  else{
+    return numIndex;
+  }
 }
 
 // Interrupt service routine
+//   Reads the switches and counts the amount in the on state.
 void readSwitchStates(){
+
+  InputArray[0] = digitalRead(sw0);
+  InputArray[1] = digitalRead(sw1);
+  InputArray[2] = digitalRead(sw2);
+  InputArray[3] = digitalRead(sw3);
+  InputArray[4] = digitalRead(sw4);
+
+//  InputArray[0] = analogRead(sw0);
+//  InputArray[1] = analogRead(sw1);
+//  InputArray[2] = analogRead(sw2);
+//  InputArray[3] = analogRead(sw3);
+//  InputArray[4] = analogRead(sw4);
   
+//  char str[32];
+//  sprintf(str, "%4d   %4d   %4d   %4d   %4d", InputArray[0], InputArray[1], InputArray[2], InputArray[3], InputArray[4]);
+//  Serial.println(str);
+
+  stateIndicator = InputArray[0] + InputArray[1] + InputArray[2] + InputArray[3] + InputArray[4];
 }
 
 void debugBySerial(){
