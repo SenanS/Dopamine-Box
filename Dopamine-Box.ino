@@ -11,12 +11,12 @@
 #define sw3  A3             // 4th switch attached at pin A3
 #define sw4  A5             // 5th switch attached at pin A5
 // Digital Pins
-#define wakeUpPin = 2;      // Switch interrupt pin D2, for low power wakeup
+#define wakeUpPin = 2       // Switch interrupt pin D2, for low power wakeup
 #define SD_ChipSelectPin 4  // SD card chip select pin D4
-#define speakerOut = 9;     // Speaker output pin D9
-#define SD_MOSI = 11;       // SD card MOSI SPI output pin D9
+#define speakerOut = 9      // Speaker output pin D9
+#define SD_MOSI = 11        // SD card MOSI SPI output pin D9
 #define SD_MISO = 12        // SD card MISO SPI output pin D9
-#define SD_SCK = 13;        // SD card SCK SPI output pin D9
+#define SD_SCK = 13         // SD card SCK SPI output pin D9
 
 
 // Variable to interface with the speaker & SD card
@@ -24,7 +24,6 @@ TMRpcm audioV;
 
 // TODO: Remove
 int counter = 6;
-
 
 // Indicates the state of the system
 //    There are 6 states from beginning to end. 0-->5, 
@@ -52,7 +51,8 @@ char *soundsX[] = {"x3.wav", "x2.wav", "x1.wav"};
 char *soundsF[] = {"f0.wav", "f1.wav", "f2.wav", "f3.wav", "f4.wav", "f5.wav"};
 
 void setup(){
-
+  
+//  Pin & Serial Setup
   Serial.begin(9600);
   pinMode(wakeUpPin, INPUT);
   pinMode(sw0, INPUT);
@@ -75,6 +75,7 @@ void setup(){
   audioV.quality(1);
   audioV.setVolume(5);
 
+//  Finite State Machine Setup
   savedState = stateIndicator;
 }
 
@@ -86,7 +87,7 @@ void loop(){
 // Enter Sleep Mode
 //  LowPower.powerDown(SLEEP_FOREVER, ADC_OFF, BOD_OFF); 
 
-// Detach interrupt on interruptE
+// Detach interrupt on interrupt
 //  detachInterrupt(digitalPinToInterrupt(wakeUpPin)); 
   readSwitchStates();
 
