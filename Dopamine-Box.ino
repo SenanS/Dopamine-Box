@@ -1,23 +1,23 @@
 #include "SD.h"
 #include "TMRpcm.h"
 #include "SPI.h"
-#include "LowPower.h"
+//#include "LowPower.h"
 #include <stdio.h>
 
 // Analog Pins
 #define sw0  A0             // 1st switch attached at pin A0
 #define sw1  A1             // 2nd switch attached at pin A1
 #define sw2  A2             // 3rd switch attached at pin A2
-#define sw3  A3             // 4th switch attached at pin A3
+#define sw3  A4             // 4th switch attached at pin A3
 #define sw4  A5             // 5th switch attached at pin A5
 
 // Digital Pins
-#define wakeUpPin = 2       // Switch interrupt pin D2, for low power wakeup
+#define wakeUpPin 2         // Switch interrupt pin D2, for low power wakeup
 #define SD_ChipSelectPin 4  // SD card chip select pin D4
-#define speakerOut = 9      // Speaker output pin D9
-#define SD_MOSI = 11        // SD card MOSI SPI output pin D11
-#define SD_MISO = 12        // SD card MISO SPI output pin D12
-#define SD_SCK = 13         // SD card SCK SPI output pin D13
+#define speakerOut 9        // Speaker output pin D9
+#define SD_MOSI 11          // SD card MOSI SPI output pin D11
+#define SD_MISO 12          // SD card MISO SPI output pin D12
+#define SD_SCK 13           // SD card SCK SPI output pin D13
 
 
 // Variable to interface with the speaker & SD card
@@ -58,7 +58,7 @@ void setup(){
   pinMode(wakeUpPin, INPUT);
   pinMode(sw0, INPUT);
   pinMode(sw1, INPUT);
-  pinMode(sw2, INPUT);0 
+  pinMode(sw2, INPUT); 
   pinMode(sw3, INPUT);
   pinMode(sw4, INPUT);
 
@@ -130,8 +130,9 @@ void loop(){
 }
 
 void playRandomSound(int state){
-  
-  randomIndex = checkProbability(random(1, 100), state, 0);
+
+//  randomIndex = checkProbability(random(1, 100), state, 0);
+  randomIndex = state - 1;
  
   if(randomIndex == 4){
     audioV.play(soundsF[0]);
@@ -157,7 +158,7 @@ int checkProbability(int randomStop, int arrIndex, int numIndex){
   int comparison = randomStop - outputProbability[arrIndex][numIndex];
   
   char str[32];
-  sprintf(str, "Orig: %3d Comp: %3d Index: %3d", randomStop, comparison, numIndex);
+  sprintf(str, "Orig: %3d Comp: %3d Index: %3d ArrayInd: %3d", randomStop, comparison, numIndex, arrIndex);
   Serial.println(str);
   
   if(comparison < 1){
