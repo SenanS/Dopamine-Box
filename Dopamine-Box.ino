@@ -49,6 +49,7 @@ char *soundsB[] = {"b1.wav", "b2.wav", "b3.wav", "b4.wav", "b5.wav"};
 char *soundsC[] = {"c1.wav", "c3.wav"};
 char *soundsX[] = {"x3.wav", "x2.wav", "x1.wav"};
 char *soundsF[] = {"f0.wav", "f1.wav", "f2.wav", "f3.wav", "f4.wav", "f5.wav"};
+int sizeSounds[] = {7, 5, 2, 3, 6};
 
 void setup(){
   
@@ -112,21 +113,23 @@ void playRandomSound(int state){
 
   randomIndex = checkProbability(random(1, 101), state, 0);
 //  randomIndex = state - 1;
+  Serial.print("randomIndex = ");
+  Serial.println(randomIndex);
  
   if(randomIndex == 4){
-    audioV.play(soundsF[0]);
+    audioV.play(soundsF[random(0, sizeSounds[4])]);
   }
   else if(randomIndex == 3){
-    audioV.play(soundsX[0]);
+    audioV.play(soundsX[random(0, sizeSounds[3])]);
   }
   else if(randomIndex == 2){
-    audioV.play(soundsC[0]);
+    audioV.play(soundsC[random(0, sizeSounds[2])]);
   }
   else if(randomIndex == 1){
-    audioV.play(soundsB[0]);
+    audioV.play(soundsB[random(0, sizeSounds[1])]);
   }
   else{
-    audioV.play(soundsA[0]);
+    audioV.play(soundsA[random(0, sizeSounds[0])]);
   }
   
 }
