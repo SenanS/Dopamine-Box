@@ -32,8 +32,7 @@ int counter = 6;
 int stateIndicator = 0, savedState, randomIndex;
 
 // Probability of output:     A,    B,    C,    X,    F},
-int outputProbability[6][5]={{80,   10,   7,    3,    0},
-                             {60,   15,   15,   10,   0},
+int outputProbability[5][5]={{80,   10,   7,    3,    0},
                              {30,   50,   15,   5,    0},
                              {5,    70,   22,   3,    0},
                              {0,    10,   85,   3,    2},
@@ -96,26 +95,6 @@ void loop(){
   if (savedState < stateIndicator){
 //    Update LEDs    
 //    Create sounds on advancement
-//    switch(stateIndicator){
-//      case 1:
-//        break; 
-//      case 2:
-//        audioV.play(soundsB[0]);
-//        break; 
-//      case 3:
-//        audioV.play(soundsC[0]);
-//        break; 
-//      case 4:
-//        audioV.play(soundsX[0]);
-//        break; 
-//      case 5:
-//        audioV.play(soundsF[0]);
-//        break;  
-//      default:
-//        audioV.play(soundsA[0]);
-//        Serial.println("ahhh");
-//        break; 
-//    }
     Serial.println(stateIndicator);
     playRandomSound(stateIndicator);
   }
@@ -131,8 +110,8 @@ void loop(){
 
 void playRandomSound(int state){
 
-//  randomIndex = checkProbability(random(1, 100), state, 0);
-  randomIndex = state - 1;
+  randomIndex = checkProbability(random(1, 101), state, 0);
+//  randomIndex = state - 1;
  
   if(randomIndex == 4){
     audioV.play(soundsF[0]);
@@ -153,19 +132,19 @@ void playRandomSound(int state){
 }
 
 // Subtractive & Recursive function to implement a probability distribution on a number between 1-100
-int checkProbability(int randomStop, int arrIndex, int numIndex){
+int checkProbability(int randomStop, int distIndex, int probIndex){
   
-  int comparison = randomStop - outputProbability[arrIndex][numIndex];
+  int comparison = randomStop - outputProbability[distIndex - 1][probIndex];
   
   char str[32];
-  sprintf(str, "Orig: %3d Comp: %3d Index: %3d ArrayInd: %3d", randomStop, comparison, numIndex, arrIndex);
+  sprintf(str, "Orig: %3d Comp: %3d Index: %3d", randomStop, comparison, probIndex, distIndex);
   Serial.println(str);
   
-  if(comparison < 1){
-    return checkProbability(comparison, arrIndex, numIndex + 1);
+  if(comparison >= 1){
+    return checkProbability(comparison, distIndex, probIndex + 1);
   }
   else{
-    return numIndex;
+    return probIndex;
   }
 }
 
