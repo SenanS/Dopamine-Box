@@ -12,4 +12,6 @@
 - [ ] Miniaturise µController from Arduino Nano to ATMEGA328P.
 - [ ] Design & buy PCB for final circuit.
 - [ ] Design, Print & Prototype final product housing.
+  - [ ] Add ballast for ergonomics.
+  - [ ] Finish README 
 
