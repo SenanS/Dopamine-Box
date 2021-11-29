@@ -7,7 +7,7 @@
 # TODO
 - [X] Add better amplifier circuit with LM386 IC.
 - [x] Create sound randomiser function, to vary achievement sounds being played.
-  - [x] Upgrade randomiser to discrete probability density function.
+  - [x] Upgrade randomiser to discrete probability density function, controlled by finite state machine.
 - [ ] Finish Deep Sleep (Low Power) mode.
 - [ ] Miniaturise µController from Arduino Nano to ATMEGA328P.
 - [ ] Design & buy PCB for final circuit.
