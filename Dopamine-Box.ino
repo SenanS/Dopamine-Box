@@ -151,8 +151,8 @@ int checkProbability(int randomStop, int distIndex, int probIndex){
   }
 }
 
-// Interrupt service routine
-//   Reads the switches and counts the amount in the on state.
+
+// Reads the switches and counts the amount in the on state.
 void readSwitchStates(){
 
   InputArray[0] = digitalRead(sw0);
@@ -160,16 +160,8 @@ void readSwitchStates(){
   InputArray[2] = digitalRead(sw2);
   InputArray[3] = digitalRead(sw3);
   InputArray[4] = digitalRead(sw4);
-
-//  InputArray[0] = analogRead(sw0);
-//  InputArray[1] = analogRead(sw1);
-//  InputArray[2] = analogRead(sw2);
-//  InputArray[3] = analogRead(sw3);
-//  InputArray[4] = analogRead(sw4);
   
-//  char str[32];
-//  sprintf(str, "%4d   %4d   %4d   %4d   %4d", InputArray[0], InputArray[1], InputArray[2], InputArray[3], InputArray[4]);
-//  Serial.println(str);
+  debugPrintState();
 
   stateIndicator = InputArray[0] + InputArray[1] + InputArray[2] + InputArray[3] + InputArray[4];
 }
@@ -198,5 +190,15 @@ void debugBySerial(){
       case '-': audioV.volume(0); break;
       default: break;
     }
+  }
+}
+
+void debugPrintState(){
+  // Print formatted input state to serial
+  
+  if(Serial.available()){    
+    char str[32];
+    sprintf(str, "%4d   %4d   %4d   %4d   %4d", InputArray[0], InputArray[1], InputArray[2], InputArray[3], InputArray[4]);
+    Serial.println(str);
   }
 }
