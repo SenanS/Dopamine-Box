@@ -11,7 +11,7 @@
 - [ ] Finish Deep Sleep (Low Power) mode.
 - [ ] Miniaturise µController from Arduino Nano to ATMEGA328P.
 - [ ] Design & buy PCB for final circuit.
-- [ ] Design, Print & Prototype final product housing.
+- [x] Design, Print & Prototype final product housing.
   - [ ] Add ballast for stability.
   - [ ] Finish README 
 
