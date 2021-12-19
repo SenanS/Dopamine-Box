@@ -1,0 +1,357 @@
+[Version]
+Product,2
+File,19
+{
+"Config" : {
+  "NetImportFormat" : "Protel"
+},
+"Board" : {
+  "Width" : 19,
+  "Height" : 39,
+  "Pattern" : "Strip"
+},
+"CelledOutlines" : [
+  { "Name" : "14 DIP", "Locked" : true,
+    "Rows" : [
+    ["Body","Free","Free","Body"],
+    ["Body","Free","Free","Body"],
+    ["Body","Free","Free","Body"],
+    ["Body","Free","Free","Body"],
+    ["Body","Free","Free","Body"],
+    ["Body","Free","Free","Body"],
+    ["Body","Free","Free","Body"]
+    ]
+  },
+  { "Name" : "28 DIP", "Locked" : true,
+    "Rows" : [
+    ["Body","Free","Free","Body"],
+    ["Body","Free","Free","Body"],
+    ["Body","Free","Free","Body"],
+    ["Body","Free","Free","Body"],
+    ["Body","Free","Free","Body"],
+    ["Body","Free","Free","Body"],
+    ["Body","Free","Free","Body"],
+    ["Body","Free","Free","Body"],
+    ["Body","Free","Free","Body"],
+    ["Body","Free","Free","Body"],
+    ["Body","Free","Free","Body"],
+    ["Body","Free","Free","Body"],
+    ["Body","Free","Free","Body"],
+    ["Body","Free","Free","Body"]
+    ]
+  },
+  { "Name" : "6 SIP", "Locked" : true,
+    "Rows" : [
+    ["Body"],
+    ["Body"],
+    ["Body"],
+    ["Body"],
+    ["Body"],
+    ["Body"]
+    ]
+  },
+  { "Name" : "8 DIP", "Locked" : true,
+    "Rows" : [
+    ["Body","Free","Free","Body"],
+    ["Body","Free","Free","Body"],
+    ["Body","Free","Free","Body"],
+    ["Body","Free","Free","Body"]
+    ]
+  },
+  { "Name" : "Nano Pins", "Locked" : true,
+    "Rows" : [
+    ["Free","Free",{"Pin" : "5V"},{"Pin" : "D11"},{"Pin" : "GND"},"Free","Free"],
+    [{"Pin" : "TX1"},"Free",{"Pin" : "D12"},{"Pin" : "D13"},{"Pin" : "RST"},"Free",{"Pin" : "VIN"}],
+    [{"Pin" : "RX0"},"Free","Free","Free","Free","Free",{"Pin" : "GND"}],
+    [{"Pin" : "RST"},"Free","Free","Free","Free","Free",{"Pin" : "RST"}],
+    [{"Pin" : "GND"},"Free","Free","Free","Free","Free",{"Pin" : "5V"}],
+    [{"Pin" : "D2"},"Free","Free","Free","Free","Free",{"Pin" : "A7"}],
+    [{"Pin" : "D3"},"Free","Free","Free","Free","Free",{"Pin" : "A6"}],
+    [{"Pin" : "D4"},"Free","Free","Free","Free","Free",{"Pin" : "A5"}],
+    [{"Pin" : "D5"},"Free","Free","Free","Free","Free",{"Pin" : "A4"}],
+    [{"Pin" : "D6"},"Free","Free","Free","Free","Free",{"Pin" : "A3"}],
+    [{"Pin" : "D7"},"Free","Free","Free","Free","Free",{"Pin" : "A2"}],
+    [{"Pin" : "D8"},"Free","Free","Free","Free","Free",{"Pin" : "A1"}],
+    [{"Pin" : "D9"},"Free","Free","Free","Free","Free",{"Pin" : "A0"}],
+    [{"Pin" : "D10"},"Free","Free","Free","Free","Free",{"Pin" : "REF"}],
+    [{"Pin" : "D11"},"Free","Free","Free","Free","Free",{"Pin" : "3V3"}],
+    [{"Pin" : "D12"},"Free","Free","Free","Free","Free",{"Pin" : "D13"}]
+    ]
+  },
+  { "Name" : "Pot", "Locked" : true,
+    "Rows" : [
+    ["Body"],
+    ["Body"],
+    ["Body"]
+    ]
+  },
+  { "Name" : "Two Pins", "Locked" : true,
+    "Rows" : [
+    ["Body","Body"]
+    ]
+  }
+],
+"LeadedOutlines" : [
+  { "Name" : "Clock", "Locked" : true,
+    "BodyLength" : 2, "BodyWidth" : 1,
+    "Pin0Name" : "1", "Pin1Name" : "2", "ShowReference" : false
+  },
+  { "Name" : "Res", "Locked" : false,
+    "BodyLength" : 3, "BodyWidth" : 1,
+    "Pin0Name" : "1", "Pin1Name" : "2", "ShowReference" : false
+  },
+  { "Name" : "Switch", "Locked" : true,
+    "BodyLength" : 1, "BodyWidth" : 2,
+    "Pin0Name" : "1", "Pin1Name" : "2", "ShowReference" : false
+  }
+],
+"RadialOutlines" : [
+  { "Name" : "Cap", "Locked" : false,
+    "LeadSpacing" : 2, "Diameter" : 3,
+    "Pin0Name" : "1", "Pin1Name" : "2"
+  },
+  { "Name" : "Cer Cap", "Locked" : true,
+    "LeadSpacing" : 1, "Diameter" : 1,
+    "Pin0Name" : "1", "Pin1Name" : "2"
+  },
+  { "Name" : "LED", "Locked" : true,
+    "LeadSpacing" : 1, "Diameter" : 1,
+    "Pin0Name" : "1", "Pin1Name" : "2"
+  }
+],
+"CustomOutlines" : [
+],
+"SmdOutlines" : [
+],
+"Components" : [
+  { "Designator" : "AMP", "Value" : "AMP", "Outline" : "8 DIP",
+  "X1000" : 6000, "Y1000" : 15000, "EndDeltaX" : 0, "EndDeltaY" : -1,
+  "Text" : { "X" : 1, "Y" : -1, "Angle" : 0, "Visible" : true },
+  "Group" : 0
+  },
+  { "Designator" : "Cap", "Value" : "10uF", "Outline" : "Cap",
+  "X1000" : 13000, "Y1000" : 24000, "EndDeltaX" : 0, "EndDeltaY" : 1,
+  "Text" : { "X" : 0, "Y" : 1, "Angle" : 0, "Visible" : true },
+  "Group" : 0
+  },
+  { "Designator" : "Cap(1)", "Value" : "10uF", "Outline" : "Cap",
+  "X1000" : 10000, "Y1000" : 14000, "EndDeltaX" : -4, "EndDeltaY" : 21,
+  "Text" : { "X" : 0, "Y" : -1, "Angle" : 0, "Visible" : true },
+  "Group" : 0
+  },
+  { "Designator" : "Cap(1)(1)", "Value" : "470uF", "Outline" : "Cap",
+  "X1000" : 4000, "Y1000" : 8000, "EndDeltaX" : -2, "EndDeltaY" : 4,
+  "Text" : { "X" : -1, "Y" : 2, "Angle" : 0, "Visible" : true },
+  "Group" : 0
+  },
+  { "Designator" : "Cap(1)(1)(1)", "Value" : "470uF", "Outline" : "Cap",
+  "X1000" : 1000, "Y1000" : 8000, "EndDeltaX" : 0, "EndDeltaY" : 4,
+  "Text" : { "X" : 0, "Y" : 5, "Angle" : 0, "Visible" : true },
+  "Group" : 0
+  },
+  { "Designator" : "Cer Cap(1)", "Value" : "50nF", "Outline" : "Cer Cap",
+  "X1000" : 5000, "Y1000" : 10000, "EndDeltaX" : -5, "EndDeltaY" : 2,
+  "Text" : { "X" : 0, "Y" : -1, "Angle" : 0, "Visible" : true },
+  "Group" : 0
+  },
+  { "Designator" : "LED(1)", "Value" : "LED", "Outline" : "LED",
+  "X1000" : 1000, "Y1000" : 0, "EndDeltaX" : 1, "EndDeltaY" : 2,
+  "Text" : { "X" : 0, "Y" : 0, "Angle" : 0, "Visible" : true },
+  "Group" : 0
+  },
+  { "Designator" : "Nano Pins", "Value" : "NANO", "Outline" : "Nano Pins",
+  "X1000" : 5000, "Y1000" : 23000, "EndDeltaX" : 0, "EndDeltaY" : 1,
+  "Text" : { "X" : 6, "Y" : 0, "Angle" : 0, "Visible" : true },
+  "Group" : 0
+  },
+  { "Designator" : "PIN", "Value" : "POWER", "Outline" : "Two Pins",
+  "X1000" : 15000, "Y1000" : 24000, "EndDeltaX" : -1, "EndDeltaY" : 0,
+  "Text" : { "X" : -1, "Y" : 0, "Angle" : 0, "Visible" : true },
+  "Group" : 0
+  },
+  { "Designator" : "PIN(1)", "Value" : "SPEAKER", "Outline" : "Two Pins",
+  "X1000" : 6000, "Y1000" : 8000, "EndDeltaX" : -1, "EndDeltaY" : 0,
+  "Text" : { "X" : -1, "Y" : 0, "Angle" : 0, "Visible" : true },
+  "Group" : 0
+  },
+  { "Designator" : "POTENTIOMETER", "Value" : "10K", "Outline" : "Pot",
+  "X1000" : 11000, "Y1000" : 14000, "EndDeltaX" : 0, "EndDeltaY" : -1,
+  "Text" : { "X" : 0, "Y" : -1, "Angle" : 0, "Visible" : true },
+  "Group" : 0
+  },
+  { "Designator" : "Res(1)", "Value" : "330", "Outline" : "Res",
+  "X1000" : 0, "Y1000" : 2000, "EndDeltaX" : 2, "EndDeltaY" : 2,
+  "Text" : { "X" : 0, "Y" : 1, "Angle" : 0, "Visible" : true },
+  "Group" : 0
+  },
+  { "Designator" : "Res(1)(1)", "Value" : "10", "Outline" : "Res",
+  "X1000" : 12000, "Y1000" : 10000, "EndDeltaX" : -3, "EndDeltaY" : 2,
+  "Text" : { "X" : 1, "Y" : 0, "Angle" : 0, "Visible" : true },
+  "Group" : 0
+  },
+  { "Designator" : "SD CARD", "Value" : "SD CARD", "Outline" : "6 SIP",
+  "X1000" : 0, "Y1000" : 17000, "EndDeltaX" : 0, "EndDeltaY" : 1,
+  "Text" : { "X" : 1, "Y" : 6, "Angle" : 0, "Visible" : true },
+  "Group" : 0
+  },
+  { "Designator" : "SW", "Value" : "SW", "Outline" : "Switch",
+  "X1000" : 1000, "Y1000" : 4000, "EndDeltaX" : 0, "EndDeltaY" : 3,
+  "Text" : { "X" : 0, "Y" : 1, "Angle" : 0, "Visible" : true },
+  "Group" : 0
+  },
+  { "Designator" : "Cer Cap(1)(1)", "Value" : "100nF", "Outline" : "Cer Cap",
+  "X1000" : 0, "Y1000" : 4000, "EndDeltaX" : 0, "EndDeltaY" : 3,
+  "Text" : { "X" : 1, "Y" : 2, "Angle" : 0, "Visible" : true },
+  "Group" : 0
+  },
+  { "Designator" : "LED(1)(1)", "Value" : "LED", "Outline" : "LED",
+  "X1000" : 5000, "Y1000" : 0, "EndDeltaX" : 1, "EndDeltaY" : 2,
+  "Text" : { "X" : 0, "Y" : 0, "Angle" : 0, "Visible" : true },
+  "Group" : 0
+  },
+  { "Designator" : "Res(1)(2)", "Value" : "330", "Outline" : "Res",
+  "X1000" : 4000, "Y1000" : 2000, "EndDeltaX" : 2, "EndDeltaY" : 2,
+  "Text" : { "X" : 0, "Y" : 1, "Angle" : 0, "Visible" : true },
+  "Group" : 0
+  },
+  { "Designator" : "SW(1)", "Value" : "SW", "Outline" : "Switch",
+  "X1000" : 5000, "Y1000" : 4000, "EndDeltaX" : 0, "EndDeltaY" : 3,
+  "Text" : { "X" : 0, "Y" : 1, "Angle" : 0, "Visible" : true },
+  "Group" : 0
+  },
+  { "Designator" : "Cer Cap(1)(1)(1)", "Value" : "100nF", "Outline" : "Cer Cap",
+  "X1000" : 4000, "Y1000" : 4000, "EndDeltaX" : 0, "EndDeltaY" : 3,
+  "Text" : { "X" : 1, "Y" : 2, "Angle" : 0, "Visible" : true },
+  "Group" : 0
+  },
+  { "Designator" : "LED(1)(2)", "Value" : "LED", "Outline" : "LED",
+  "X1000" : 9000, "Y1000" : 0, "EndDeltaX" : 1, "EndDeltaY" : 2,
+  "Text" : { "X" : 0, "Y" : 0, "Angle" : 0, "Visible" : true },
+  "Group" : 0
+  },
+  { "Designator" : "Res(1)(3)", "Value" : "330", "Outline" : "Res",
+  "X1000" : 8000, "Y1000" : 2000, "EndDeltaX" : 2, "EndDeltaY" : 2,
+  "Text" : { "X" : 0, "Y" : 1, "Angle" : 0, "Visible" : true },
+  "Group" : 0
+  },
+  { "Designator" : "SW(2)", "Value" : "SW", "Outline" : "Switch",
+  "X1000" : 9000, "Y1000" : 4000, "EndDeltaX" : 0, "EndDeltaY" : 3,
+  "Text" : { "X" : 0, "Y" : 1, "Angle" : 0, "Visible" : true },
+  "Group" : 0
+  },
+  { "Designator" : "Cer Cap(1)(1)(2)", "Value" : "100nF", "Outline" : "Cer Cap",
+  "X1000" : 8000, "Y1000" : 4000, "EndDeltaX" : 0, "EndDeltaY" : 3,
+  "Text" : { "X" : 1, "Y" : 2, "Angle" : 0, "Visible" : true },
+  "Group" : 0
+  },
+  { "Designator" : "LED(1)(3)", "Value" : "LED", "Outline" : "LED",
+  "X1000" : 13000, "Y1000" : 0, "EndDeltaX" : 1, "EndDeltaY" : 2,
+  "Text" : { "X" : 0, "Y" : 0, "Angle" : 0, "Visible" : true },
+  "Group" : 0
+  },
+  { "Designator" : "Res(1)(4)", "Value" : "330", "Outline" : "Res",
+  "X1000" : 12000, "Y1000" : 2000, "EndDeltaX" : 2, "EndDeltaY" : 2,
+  "Text" : { "X" : 0, "Y" : 1, "Angle" : 0, "Visible" : true },
+  "Group" : 0
+  },
+  { "Designator" : "SW(3)", "Value" : "SW", "Outline" : "Switch",
+  "X1000" : 13000, "Y1000" : 4000, "EndDeltaX" : 0, "EndDeltaY" : 3,
+  "Text" : { "X" : 0, "Y" : 1, "Angle" : 0, "Visible" : true },
+  "Group" : 0
+  },
+  { "Designator" : "Cer Cap(1)(1)(3)", "Value" : "100nF", "Outline" : "Cer Cap",
+  "X1000" : 12000, "Y1000" : 4000, "EndDeltaX" : 0, "EndDeltaY" : 3,
+  "Text" : { "X" : 1, "Y" : 2, "Angle" : 0, "Visible" : true },
+  "Group" : 0
+  },
+  { "Designator" : "LED(1)(4)", "Value" : "LED", "Outline" : "LED",
+  "X1000" : 17000, "Y1000" : 0, "EndDeltaX" : 1, "EndDeltaY" : 2,
+  "Text" : { "X" : 0, "Y" : 0, "Angle" : 0, "Visible" : true },
+  "Group" : 0
+  },
+  { "Designator" : "Res(1)(5)", "Value" : "330", "Outline" : "Res",
+  "X1000" : 16000, "Y1000" : 2000, "EndDeltaX" : 2, "EndDeltaY" : 2,
+  "Text" : { "X" : 0, "Y" : 1, "Angle" : 0, "Visible" : true },
+  "Group" : 0
+  },
+  { "Designator" : "SW(4)", "Value" : "SW", "Outline" : "Switch",
+  "X1000" : 17000, "Y1000" : 4000, "EndDeltaX" : 0, "EndDeltaY" : 3,
+  "Text" : { "X" : 0, "Y" : 1, "Angle" : 0, "Visible" : true },
+  "Group" : 0
+  },
+  { "Designator" : "Cer Cap(1)(1)(4)", "Value" : "100nF", "Outline" : "Cer Cap",
+  "X1000" : 16000, "Y1000" : 4000, "EndDeltaX" : 0, "EndDeltaY" : 3,
+  "Text" : { "X" : 1, "Y" : 2, "Angle" : 0, "Visible" : true },
+  "Group" : 0
+  }
+],
+"Links" : [
+  { "X" : 3, "Y" : 19, "EndDeltaX" : 0, "EndDeltaY" : 19, "Group" : 0 },
+  { "X" : 4, "Y" : 17, "EndDeltaX" : 0, "EndDeltaY" : 10, "Group" : 0 },
+  { "X" : 1, "Y" : 22, "EndDeltaX" : 0, "EndDeltaY" : 8, "Group" : 0 },
+  { "X" : 12, "Y" : 22, "EndDeltaX" : 0, "EndDeltaY" : 16, "Group" : 0 },
+  { "X" : 17, "Y" : 21, "EndDeltaX" : 0, "EndDeltaY" : 17, "Group" : 0 },
+  { "X" : 2, "Y" : 20, "EndDeltaX" : 0, "EndDeltaY" : 17, "Group" : 0 },
+  { "X" : 18, "Y" : 16, "EndDeltaX" : 0, "EndDeltaY" : 11, "Group" : 0 },
+  { "X" : 7, "Y" : 9, "EndDeltaX" : 0, "EndDeltaY" : 3, "Group" : 0 },
+  { "X" : 2, "Y" : 16, "EndDeltaX" : 0, "EndDeltaY" : -3, "Group" : 0 },
+  { "X" : 8, "Y" : 12, "EndDeltaX" : 0, "EndDeltaY" : 2, "Group" : 0 },
+  { "X" : 18, "Y" : 7, "EndDeltaX" : -1, "EndDeltaY" : 9, "Group" : 0 },
+  { "X" : 15, "Y" : 0, "EndDeltaX" : 0, "EndDeltaY" : 17, "Group" : 0 },
+  { "X" : 7, "Y" : 14, "EndDeltaX" : 0, "EndDeltaY" : 3, "Group" : 0 }
+],
+"Breaks" : [
+  { "X" : 8, "Y" : 31, "Shift" : "none", "Group" : 0 },
+  { "X" : 8, "Y" : 30, "Shift" : "none", "Group" : 0 },
+  { "X" : 8, "Y" : 29, "Shift" : "none", "Group" : 0 },
+  { "X" : 8, "Y" : 34, "Shift" : "none", "Group" : 0 },
+  { "X" : 8, "Y" : 38, "Shift" : "none", "Group" : 0 },
+  { "X" : 8, "Y" : 37, "Shift" : "none", "Group" : 0 },
+  { "X" : 6, "Y" : 24, "Shift" : "none", "Group" : 0 },
+  { "X" : 8, "Y" : 36, "Shift" : "none", "Group" : 0 },
+  { "X" : 8, "Y" : 27, "Shift" : "none", "Group" : 0 },
+  { "X" : 8, "Y" : 32, "Shift" : "none", "Group" : 0 },
+  { "X" : 8, "Y" : 25, "Shift" : "none", "Group" : 0 },
+  { "X" : 8, "Y" : 35, "Shift" : "none", "Group" : 0 },
+  { "X" : 8, "Y" : 28, "Shift" : "none", "Group" : 0 },
+  { "X" : 8, "Y" : 33, "Shift" : "none", "Group" : 0 },
+  { "X" : 10, "Y" : 24, "Shift" : "none", "Group" : 0 },
+  { "X" : 8, "Y" : 26, "Shift" : "none", "Group" : 0 },
+  { "X" : 5, "Y" : 12, "Shift" : "none", "Group" : 0 },
+  { "X" : 5, "Y" : 13, "Shift" : "none", "Group" : 0 },
+  { "X" : 5, "Y" : 14, "Shift" : "none", "Group" : 0 },
+  { "X" : 5, "Y" : 15, "Shift" : "none", "Group" : 0 },
+  { "X" : 9, "Y" : 14, "Shift" : "none", "Group" : 0 },
+  { "X" : 3, "Y" : 4, "Shift" : "none", "Group" : 0 },
+  { "X" : 3, "Y" : 2, "Shift" : "none", "Group" : 0 },
+  { "X" : 7, "Y" : 4, "Shift" : "none", "Group" : 0 },
+  { "X" : 7, "Y" : 2, "Shift" : "none", "Group" : 0 },
+  { "X" : 11, "Y" : 4, "Shift" : "none", "Group" : 0 },
+  { "X" : 11, "Y" : 2, "Shift" : "none", "Group" : 0 },
+  { "X" : 15, "Y" : 4, "Shift" : "none", "Group" : 0 },
+  { "X" : 15, "Y" : 2, "Shift" : "none", "Group" : 0 }
+],
+"Wires" : [
+],
+"Text" : [
+    { "Value" : "GND", "X" : 1, "Y" : 17, "Angle" : 0, "Size" : "Small", "Group" : 0 },
+    { "Value" : "MISO", "X" : 1, "Y" : 19, "Angle" : 0, "Size" : "Small", "Group" : 0 },
+    { "Value" : "MOSI", "X" : 1, "Y" : 20, "Angle" : 0, "Size" : "Small", "Group" : 0 },
+    { "Value" : "SCK", "X" : 1, "Y" : 21, "Angle" : 0, "Size" : "Small", "Group" : 0 },
+    { "Value" : "CS", "X" : 1, "Y" : 22, "Angle" : 0, "Size" : "Small", "Group" : 0 },
+    { "Value" : "VCC", "X" : 1, "Y" : 18, "Angle" : 0, "Size" : "Small", "Group" : 0 }
+],
+"Nets" : [
+],
+"NetColors" : [
+    { "Node" : "" },
+    { "Node" : "" },
+    { "Node" : "" },
+    { "Node" : "" },
+    { "Node" : "" },
+    { "Node" : "" }
+],
+"Notes" : {
+  "Lines" : ""
+}
+}
