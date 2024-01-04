@@ -3,7 +3,7 @@ A flip switch circuit for encouraging you to complete tasks, loaded with lights 
 
 ![The Dopamine Box](Images/Box%20Front.jpg)
 
-## Read more about the [Dopamine box here]()
+## Read more about the [Dopamine box here](https://senans.github.io/Technical-Blog//2024/01/04/Dopamine-Box/)
 
 This project was conceptualized and designed by me, to gamify mundane tasks. It tracks up to five tasks, offering audiovisual feedback upon completion of each task, effectively rewarding the user with a dopamine hit.
 
