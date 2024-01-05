@@ -1,5 +1,5 @@
 # Dopamine-Box
-## Blog post about the [Dopamine box here](https://senans.github.io/Technical-Blog//2024/01/05/Dopamine-Box/)
+## Blog post about the [Dopamine box here](https://senans.github.io/Technical-Blog/2023/10/04/Dopamine-Box/)
 
 A flip switch circuit for encouraging you to complete tasks, loaded with lights and achievement sounds.
 
